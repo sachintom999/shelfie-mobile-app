@@ -31,5 +31,6 @@ const styles = StyleSheet.create({
   link: {
     color: "skyblue",
     fontWeight: "bold",
+    textDecorationLine:"underline"
   },
 });
