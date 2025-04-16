@@ -1,14 +1,16 @@
 import { Link } from "expo-router";
 import { StyleSheet } from "react-native";
-import { Text } from "react-native";
-import { View } from "react-native";
+import ThemedView from "../components/ThemedView";
+import ThemedText from "../components/ThemedText";
 
 const Contact = () => {
   return (
-    <View style={styles.container}>
-      <Text>Contact</Text>
-      <Link href="/" style={styles.link}>Home</Link>
-    </View>
+    <ThemedView style={styles.container}>
+      <ThemedText>Contact</ThemedText>
+      <Link href="/" style={styles.link}>
+        <ThemedText>Home</ThemedText>
+      </Link>
+    </ThemedView>
   );
 };
 
@@ -31,6 +33,6 @@ const styles = StyleSheet.create({
   link: {
     color: "skyblue",
     fontWeight: "bold",
-    textDecorationLine:"underline"
+    textDecorationLine: "underline",
   },
 });
