@@ -22,9 +22,13 @@ const Home = () => {
       <Link href="/login" style={styles.link}>
         Login
       </Link>
-      <Link href="/register" style={styles.link}>
-        Register
-      </Link>
+      <Link href="/register" style={styles.link}>register </Link>
+      <Link href="/profile" style={styles.link}>profile </Link>
+      <Link href="/books" style={styles.link}>books </Link>
+      <Link href="/create" style={styles.link}>create </Link>
+   
+   
+   
     </ThemedView>
   );
 };
