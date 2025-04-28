@@ -2,13 +2,14 @@ import { Slot, Stack } from "expo-router";
 import { Text, useColorScheme, View } from "react-native";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
+import { UserProvider } from "../contexts/userContext";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme];
 
   return (
-    <>
+    <UserProvider>
       <StatusBar value="auto" />
       <Stack
         screenOptions={{
@@ -23,7 +24,7 @@ const RootLayout = () => {
         {/* Individual Screens */}
         <Stack.Screen name="index" options={{ title: "Home" }} />
       </Stack>
-    </>
+    </UserProvider>
   );
 };
 
