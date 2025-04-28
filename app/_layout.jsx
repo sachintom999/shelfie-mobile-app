@@ -2,11 +2,13 @@ import { Slot, Stack } from "expo-router";
 import { Text, useColorScheme, View } from "react-native";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
-import { UserProvider } from "../contexts/userContext";
+import { UserProvider } from "../contexts/UserContext";
+import { useUser } from "../hooks/useUser";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
   const theme = Colors[colorScheme];
+  
 
   return (
     <UserProvider>
