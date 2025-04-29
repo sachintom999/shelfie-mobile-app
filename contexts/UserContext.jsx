@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
       await account.create(ID.unique(), email, password);
       await login(email, password);
     } catch (error) {
-      console.log({ error });
+      throw Error(error.message);
     }
   }
   async function login(email, password) {
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
       const response = await account.getSession("");
       setUser(response);
     } catch (error) {
-      console.log({ error });
+      throw Error(error.message);
     }
   }
   async function logout(email, password) {}

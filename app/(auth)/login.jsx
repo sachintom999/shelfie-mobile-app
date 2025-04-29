@@ -1,4 +1,10 @@
-import { Pressable, StyleSheet, Text, TextInput, TouchableWithoutFeedback } from "react-native";
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+} from "react-native";
 import { Link } from "expo-router";
 
 import ThemedView from "../../components/ThemedView";
@@ -14,15 +20,16 @@ import { useUser } from "../../hooks/useUser";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {login,user} = useUser()
+  const [error, setError] = useState(null);
+  const { login, user } = useUser();
 
-  console.log({user})
+  console.log({ user });
 
   const handleSubmit = async () => {
     try {
       await login(email, password);
     } catch (error) {
-      console.log({ error });
+      setError(error.message);
     }
   };
 
@@ -53,6 +60,8 @@ const Login = () => {
         <ThemedButton onPress={handleSubmit}>
           <Text style={{ color: "#f2f2f2" }}>Login </Text>
         </ThemedButton>
+
+        {error && <ThemedText style={styles.error}>{error}</ThemedText>}
 
         <Spacer height={100} />
         <Link href="/register" replace>
@@ -85,5 +94,14 @@ const styles = StyleSheet.create({
   },
   pressed: {
     opacity: 0.8,
+  },
+  error: {
+    color: Colors.warning,
+    padding: 10,
+    backgroundColor: "#f5c1c8",
+    borderColor: Colors.warning,
+    borderWidth: 1,
+    borderRadius: 6,
+    margin: 10,
   },
 });
